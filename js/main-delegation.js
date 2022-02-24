@@ -5,6 +5,7 @@ import {
   getGameStatusElement,
   getCellElementAtIdx,
   getReplayButtonElement,
+  getCellListElement,
 } from "./selectors.js";
 import { checkGameStatus } from "./utils.js";
 
@@ -102,11 +103,24 @@ function handleCellClick(cell, index) {
 }
 
 function initCellElementList() {
-  const cellElementList = getCellElementList();
+  // set index for each li element
+  const liList = getCellElementList();
 
-  cellElementList.forEach((cell, index) => {
-    cell.addEventListener("click", () => handleCellClick(cell, index));
+  liList.forEach((cell, index) => {
+    // cell.addEventListener("click", () => handleCellClick(cell, index));
+    cell.dataset.idx = index;
   });
+
+  const ulElement = getCellListElement();
+  if (ulElement) {
+    ulElement.addEventListener("click", (event) => {
+      if (event.target.tagName !== "LI") return;
+
+      const index = Number.parseInt(event.target.dataset.idx);
+      handleCellClick(event.target, index);
+      // event.target chính là thẻ li nào được click
+    });
+  }
 }
 
 function resetGame() {

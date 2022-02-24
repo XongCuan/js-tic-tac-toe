@@ -9,46 +9,47 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-ul {
+ul{
   list-style-type: none;
 }
 
 /* Game styles */
-.game-page {
+.game-page{
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
+  flex-flow : row nowrap;
+  justify-content : center;
   align-items: center;
 
-  padding: 1rem;
+  padding : 1rem;
   min-height: 100vh;
   background: darkgreen;
 }
 
 .game {
   position: relative;
-  display: inline-block;
+  display :inline-block;
   color: white;
   text-align: center;
 }
 
-.game .chalk-board > img {
+.game .chalk-board >img{
   width: 100%;
 }
 
-.game .overlay-content {
+.game .overlay-content{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 32px;
+  padding : 32px;
 }
 
 .game .game-details {
   margin-top: 8px;
 }
 
+/* Board cell */
 .game .board-cells-list {
   display: flex;
   flex-flow: row wrap;
@@ -56,22 +57,20 @@ ul {
   width: 150px;
 }
 
-/* Board cell */
 .game .board-cells-list > li {
   position: relative;
-  width: 33.333333%;
+  width: 33,333333%;
   height: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border : 1px solid rgba(255,255,255,0.5);
 }
 
 .game .board-cells-list > li.win {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Add hover effect on cell hover */
-.game .board-cells-list > li:hover {
+.game .board-cells-list >li:hover {
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
+  background :rgba(255, 255, 255, 0.1)
 }
 
 /* Remove hover effect if cell already clicked */
@@ -88,7 +87,6 @@ ul {
 .game .board-cells-list > li:nth-child(-n + 6) {
   border-bottom: none;
 }
-
 .game .board-cells-list > li.cross::before,
 .game .board-cells-list > li.circle::before {
   display: flex;
@@ -101,7 +99,6 @@ ul {
   font-size: 1.5rem;
   font-weight: bold;
 }
-
 .game .game-details .current-turn {
   display: flex;
   flex-flow: row wrap;
